@@ -24,7 +24,12 @@ namespace Requests_and_Responses.Controllers
         public IActionResult GetSong(int id)
         {
             var songs = new List<string> {"Home on the range", "some country song", "idk"};
-            return Ok(songs[id]);
+            try{
+                return base.Ok(songs[id]);
+            }
+            catch{
+                return base.BadRequest();
+            }
         }
     }
 }
